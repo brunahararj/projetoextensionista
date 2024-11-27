@@ -1,7 +1,7 @@
 package br.com.sgv.controller;
 
-import br.com.sgv.model.Produto;
-import br.com.sgv.repository.ProdutoRepository;
+import br.com.sgv.model.Turma;
+import br.com.sgv.repository.TurmaRepository;
 import jakarta.validation.Valid;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,42 +20,42 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @brief class ProdutoController
  */
 @Controller
-public class ProdutoController {
+public class TurmaController {
 
     @Autowired
-    private ProdutoRepository produtoRepository;
+    private TurmaRepository turmaRepository;
 
-    @GetMapping("/produtos")
+    @GetMapping("/turma")
     public String listar(Model model) {
-        model.addAttribute("listaProdutos", produtoRepository.findAll());
-        return "gerenciar_produtos";
+        model.addAttribute("listaTurma", turmaRepository.findAll());
+        return "gerenciar_turma";
     }
 
-    @GetMapping("/produtos/novo")
+    @GetMapping("/turma/novo")
     public String novo(Model model) {
-        model.addAttribute("produto", new Produto());
-        return "editar_produto";
+        model.addAttribute("turma", new Turma());
+        return "editar_turma";
     }
 
-    @GetMapping("/produtos/{id}")
+    @GetMapping("/turma/{id}")
     public String editar(@PathVariable("id") long id, Model model) {
-        Optional<Produto> produto = produtoRepository.findById(id);
-        model.addAttribute("produto", produto.get());
-        return "editar_produto";
+        Optional<Turma> turma = turmaRepository.findById(id);
+        model.addAttribute("turma", turma.get());
+        return "editar_turma";
     }
 
-    @PostMapping("/produtos")
-    public String salvar(@Valid Produto produto, BindingResult result) {
+    @PostMapping("/turma")
+    public String salvar(@Valid Turma turma, BindingResult result) {
         if (result.hasErrors()) {
-            return "editar_produto";
+            return "editar_turma";
         }
-        produtoRepository.save(produto);
-        return "redirect:/produtos";
+        turmaRepository.save(turma);
+        return "redirect:/turma";
     }
 
-    @DeleteMapping("/produtos/{id}")
+    @DeleteMapping("/turma/{id}")
     public String excluir(@PathVariable("id") long id) {
-        produtoRepository.deleteById(id);
-        return "redirect:/produtos";
+        turmaRepository.deleteById(id);
+        return "redirect:/turma";
     }
 }

@@ -8,7 +8,7 @@
     <!-- Navigation -->
     <div th:fragment="header">
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">SGV</a>
+            <a class="navbar-brand" href="#">Fala Company</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,9 +20,10 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/pessoas-juridicas">Pessoas Juridicas</a>
-                            <a class="dropdown-item" href="/pessoas-fisicas">Pessoas Físicas</a>
-                            <a class="dropdown-item" href="/produtos">Produtos</a>
-                            <a class="dropdown-item" href="/vendas">Vendas</a>
+                            <a class="dropdown-item" href="/professor">Professores</a>
+                            <a class="dropdown-item" href="/turma">Turmas</a>
+                            <a class="dropdown-item" href="/aluno">Alunos</a>
+                            
                          </div>
                     </li>
                     <div sec:authorize="hasRole('ADMIN')">

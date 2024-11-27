@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package br.com.sgv.model;
 
 import jakarta.persistence.Entity;
@@ -10,29 +16,17 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-
 /**
  *
  * @author Pablo Rangel <pablo.rangel@gmail.com>
  * @date 12/05/2021
- * @brief  class Pessoa
+ * @brief  class PessoaFisica
  */
+
 @Entity
 @Getter
 @Setter
-@Inheritance (strategy=InheritanceType.JOINED)
-public abstract class Pessoa{
+public class Professor extends Pessoa{
+  
     
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
-    @Size(min=1,message = "O nome precisa ser válido.")
-    private String nome;
-    private String email;
-    private String status;
-    @Override
-    public String toString(){
-        return nome;
     }
-    
-}

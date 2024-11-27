@@ -1,7 +1,6 @@
 package br.com.sgv.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
@@ -17,17 +16,15 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Produto{
+
+public class Turma extends Professor{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Size(min = 1, message = "O nome do produto precisa ser válido.")
-    private String nome;
-    private float preco;
+    private String idioma;
+    private String modalidade;
+    private String nivel;
+    
 
-    @Override
-    public String toString() {
-        return nome;
-    }
 }
+
